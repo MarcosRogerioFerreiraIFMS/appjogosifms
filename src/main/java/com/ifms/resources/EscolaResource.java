@@ -15,30 +15,30 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.ifms.dto.ModalidadeDTO;
-import com.ifms.services.ModalidadeService;
+import com.ifms.dto.EscolaDTO;
+import com.ifms.services.EscolaService;
 
 @RestController
-@RequestMapping(value = "/modalidades")
-public class ModalidadeResource {
+@RequestMapping(value = "/escolas")
+public class EscolaResource {
 	
 	@Autowired
-	private ModalidadeService service;	
+	private EscolaService service;	
 	
 	@GetMapping
-	public ResponseEntity<List<ModalidadeDTO>> findAll(){
-		List<ModalidadeDTO> lista = service.findAll();		
+	public ResponseEntity<List<EscolaDTO>> findAll(){
+		List<EscolaDTO> lista = service.findAll();		
 		return ResponseEntity.ok().body(lista);		
 	}
-	
+
 	@GetMapping(value = "/{id}")
-	public ResponseEntity<ModalidadeDTO> findById(@PathVariable Long id){		
-		ModalidadeDTO dto = service.findById(id);
+	public ResponseEntity<EscolaDTO> findById(@PathVariable Long id){		
+		EscolaDTO dto = service.findById(id);
 		return ResponseEntity.ok().body(dto);
 	}
 	
 	@PostMapping
-	public ResponseEntity<ModalidadeDTO> insert(@RequestBody ModalidadeDTO dto){		
+	public ResponseEntity<EscolaDTO> insert(@RequestBody EscolaDTO dto){		
 		dto = service.insert(dto);
 		// Quando retornar 201 objeto criado, por padrão retorna também o endereço do recurso
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(dto.getId()).toUri();
@@ -46,13 +46,13 @@ public class ModalidadeResource {
 	}
 	
 	@PutMapping(value = "/{id}")
-	public ResponseEntity<ModalidadeDTO> update(@PathVariable Long id, @RequestBody ModalidadeDTO dto){
+	public ResponseEntity<EscolaDTO> update(@PathVariable Long id, @RequestBody EscolaDTO dto){
 		dto = service.update(id, dto);
 		return ResponseEntity.ok().body(dto); 
 	}
 	
 	@DeleteMapping(value = "/{id}")
-	public ResponseEntity<ModalidadeDTO> delete(@PathVariable Long id){
+	public ResponseEntity<EscolaDTO> delete(@PathVariable Long id){
 		service.delete(id);
 		return ResponseEntity.noContent().build();
 	}

@@ -8,17 +8,18 @@
 		<version>2.4.3</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
+	
 	<groupId>com.ifms</groupId>
 	<artifactId>modulo-introducao</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>modulo-introducao</name>
 	<description>Introdução ao desenvolvimento de aplicação com Spring Boot</description>
+	
 	<properties>
 		<java.version>11</java.version>
 	</properties>
 	
-	<dependencies>
-	
+	<dependencies>	
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
